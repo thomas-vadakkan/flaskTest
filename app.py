@@ -15,15 +15,15 @@ socketio = SocketIO(app)
 camera = Camera(Makeup_artist())
 
 
-@socketio.on('input image', namespace='/test')
-def test_message(input):
-    input = input.split(",")[1]
-    camera.enqueue_input(input)
-    image_data = input # Do your magical Image processing here!!
-    #image_data = image_data.decode("utf-8")
-    image_data = "data:image/jpeg;base64," + image_data
-    print("OUTPUT " + image_data)
-    emit('out-image-event', {'image_data': image_data}, namespace='/test')
+# @socketio.on('input image', namespace='/test')
+# def test_message(input):
+#     input = input.split(",")[1]
+#     camera.enqueue_input(input)
+#     image_data = input # Do your magical Image processing here!!
+#     #image_data = image_data.decode("utf-8")
+#     image_data = "data:image/jpeg;base64," + image_data
+#     print("OUTPUT " + image_data)
+#     emit('out-image-event', {'image_data': image_data}, namespace='/test')
     #camera.enqueue_input(base64_to_pil_image(input))
 
 
